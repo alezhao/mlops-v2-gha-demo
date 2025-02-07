@@ -13,12 +13,12 @@ jobs:
         with:
           version: latest
   get-config:
-      uses: alezhao/mlops-templates/.github/workflows/read-yaml.yml@main
+      uses: alezhao/.github/workflows/read-yaml.yml@main
       with:
         file_name: config-infra-prod.yml
   test-terraform-state-deployment:
     needs: get-config
-    uses: alezhao/mlops-templates/.github/workflows/tf-gha-install-terraform.yml@main
+    uses: alezhao/.github/workflows/tf-gha-install-terraform.yml@main
     with:
       TFAction: 'apply'
       dply_environment: ${{ needs.set-env-branch.outputs.config-file }} 
