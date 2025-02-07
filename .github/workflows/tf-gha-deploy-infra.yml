@@ -5,6 +5,13 @@ on:
 env:
     config_env: 'none'
 jobs:
+  setup-azure-cli:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Azure CLI
+        uses: azure/setup-cli@v1
+        with:
+          version: latest
   get-config:
       uses: Azure/mlops-templates/.github/workflows/read-yaml.yml@main
       with:
